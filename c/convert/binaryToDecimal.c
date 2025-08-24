@@ -1,11 +1,10 @@
 #include <stdio.h>
-#include <math.h>
 
 int convertBinaryToDecimal(int *binary, int length) {
     int decimal = 0;
 
     for (int i = length - 1; i >= 0; i--) {
-        decimal += (binary[i] != 0) ? pow(2, length - i - 1) : 0;
+        decimal = decimal * 2 + binary[i];
     }
 
     return decimal;
