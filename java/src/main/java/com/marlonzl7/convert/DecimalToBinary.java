@@ -21,8 +21,16 @@ public class DecimalToBinary {
             return binary;
         }
 
+        int resto = decimal;
+
         for (int i = binary.length - 1; i >= 0; i--) {
-            binary[i] = (decimal % 2 == 0) ? 0 : 1;
+            int potencia = (int) Math.pow(2, i);
+
+            binary[binary.length - i - 1] = (resto - potencia >= 0) ? 1 : 0;
+
+            if (binary[binary.length - i - 1] == 1) {
+                resto -= potencia;
+            }
         }
 
         return binary;
